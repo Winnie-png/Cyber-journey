@@ -1,7 +1,7 @@
 
 # Cybersecurity Journey
 
-A hands-on record of my cybersecurity learning journey, documenting tools, practical exercises, findings, and lessons learned.
+A hands-on record of my cybersecurity learning journey. This repository documents my practical exercises, tools, findings, mistakes, and progress as I build foundational security skills.
 
 ## Day 1 — 12 November 2026
 
@@ -47,12 +47,6 @@ $ nmap scanme.nmap.org
 - 997 TCP ports were closed.
 - 1 host was up.
 
-**What I learned:**
-- How to perform a basic network scan using Nmap.
-- How to identify open ports and associated services.
-- The difference between open, closed, and filtered ports.
-- How to interpret basic Nmap scan results.
-
 ---
 
 ### Second Network Scan — Service Version Detection
@@ -72,13 +66,13 @@ $ nmap -sV -p 22,80 scanme.nmap.org
 - Scan duration: 14.48 seconds
 - IPv6 address reported but not scanned: `2600:3c01::f03c:91ff:fe18:bb2f`
 - Scan type: Service version detection (`-sV`)
-- Ports scanned: 22 and 80
+- Ports examined: 22 and 80
 
 **Findings:**
 
 | Port | State | Service | Detected Software |
 |---|---|---|---|
-| 22/tcp | Open | SSH | OpenSSH 6.6.1p1 |
+| 22/tcp | Open | SSH | OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 |
 | 80/tcp | Open | HTTP | Apache httpd 2.4.7 |
 
 **Additional service information:**
@@ -86,28 +80,30 @@ $ nmap -sV -p 22,80 scanme.nmap.org
 - SSH protocol: Version 2.0
 - CPE: `cpe:/o:linux:linux_kernel`
 
-**What I learned:**
-- How Nmap's `-sV` option identifies services and their software versions.
-- How to specify individual ports using the `-p` option.
-- How to identify software associated with open network ports.
-- The difference between basic port scanning and service enumeration.
-- Why service version information is useful during security reconnaissance.
-
-**Important note:** Service version detection provides identification estimates based on network responses. It does not, by itself, establish that a service is vulnerable.
+*Note: Service version detection identifies software based on network responses. The results are useful for reconnaissance but do not independently establish that a service is vulnerable.*
 
 ---
 
-## Key Takeaways
+### Personal Reflection
 
-- Successfully configured a cybersecurity learning environment in Termux.
-- Installed and verified Python, Nmap, and OpenSSH.
-- Performed a basic TCP port scan.
-- Identified three open ports on Nmap's designated test host.
-- Performed service version detection on SSH and HTTP.
-- Practised interpreting network reconnaissance results.
+**What surprised me**
+
+My first scan took 64.13 seconds, which was longer than I expected. The second scan took just 14.48 seconds. I also found it interesting that Nmap could identify the software versions behind the SSH and HTTP services, rather than simply telling me which ports were open.
+
+**What I'd do differently next time**
+
+My second scan only examined ports 22 and 80, even though my first scan had identified three open ports. Next time, I'll include port 9929 in the follow-up scan so I can investigate all three services.
+
+I also want to understand what the detected software versions mean from a security perspective, rather than assuming that an older version automatically means a vulnerability exists.
+
+**Why I'm doing this**
+
+I'm building practical cybersecurity skills from the ground up, with the goal of progressing towards a cybersecurity engineer role. I'm using hands-on exercises and documenting my progress so I can demonstrate what I've learned, not just what I've studied.
+
+---
 
 ## Next Learning Steps
 
 - TryHackMe: Pre Security beginner exercises.
 - OverTheWire: Bandit Level 0 → Level 1.
-- Continue practising Linux commands and basic networking.
+- Continue practising Linux commands, networking fundamentals, and service enumeration.
