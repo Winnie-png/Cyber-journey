@@ -102,6 +102,41 @@ I'm building practical cybersecurity skills from the ground up, with the goal of
 
 ---
 
+### Day 2 — TryHackMe: Offensive Security Intro
+
+Date: 13 November 2026
+Learning path: Cyber Security 101
+Room: "Offensive Security Intro" (https://tryhackme.com/room/offensivesecurityintro)
+Status: Completed
+
+### What I did
+
+Today I worked through the Offensive Security Intro room on TryHackMe.
+
+I started by learning the difference between offensive and defensive security. Then I launched the FakeBank exercise and explored the simulated banking website.
+
+The part that stood out was finding hidden pages. I used "dirb" for the first time to scan "http://fakebank.thm" for directories and files that weren't linked on the website.
+
+The scan revealed two URLs. One of them was "/bank-transfer". I opened it, followed the exercise instructions and completed the challenge by making the required transfer in the simulated environment.
+
+### What was new to me
+
+I'd never used "dirb" before. This was my first practical experience with directory enumeration.
+
+I also got to see why leaving sensitive functionality accessible without proper access controls is a problem. A page being difficult to find doesn't mean it's protected.
+
+### My takeaway
+
+I went into this exercise not knowing what DIRB was. I came out having used it to find a page I wouldn't have found through normal website navigation.
+
+I want to understand what happens behind the scenes when DIRB scans a website, particularly how it uses wordlists and interprets the server's responses.
+
+### Further exploration
+
+After completing the room, I looked into how DIRB works behind the scenes. I learned how it uses wordlists to construct possible URLs, sends HTTP requests to the website and examines the responses to identify existing paths.
+
+This helped me understand what was happening during the scan rather than just knowing which command to run.
+
 ## Next Learning Steps
 
 - TryHackMe: Pre Security beginner exercises.
