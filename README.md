@@ -137,8 +137,56 @@ After completing the room, I looked into how DIRB works behind the scenes. I lea
 
 This helped me understand what was happening during the scan rather than just knowing which command to run.
 
-## Next Learning Steps
 
-- TryHackMe: Pre Security beginner exercises.
-- OverTheWire: Bandit Level 0 → Level 1.
-- Continue practising Linux commands, networking fundamentals, and service enumeration.
+## OverTheWire: Bandit — Initial Attempt
+
+### What I did
+
+I attempted OverTheWire: Bandit and progressed to Level 4. However, I was relying heavily on Claude to provide commands because I didn't fully understand what the exercises were teaching or what the commands were doing.
+
+I realised I was copying commands without understanding them, so I decided to pause and work on the basics first.
+
+### Where I got stuck
+
+At that point, the commands I could confidently remember were `ls` and `mkdir`. I wasn't comfortable navigating directories or understanding file paths yet.
+
+### What I'm doing differently
+
+I've gone back to practising Linux commands in Termux, starting with:
+
+- `pwd` — to see my current working directory.
+- `ls` — to list files and directories.
+- `cd` — to move between directories.
+- `cd ..` — to move up one directory level.
+
+I want to understand how directories and paths work before returning to Bandit and attempting the levels again.
+
+
+## Day 3 — 16 November 2026
+
+### TryHackMe: Defensive Security Intro
+
+**Learning path:** Cyber Security 101  
+**Room:** [Defensive Security Intro](https://tryhackme.com/room/defensivesecurityintro)  
+**Status:** Completed (100%)
+
+### What I did
+
+I worked through a simulated SOC investigation at FakeBank involving suspicious login attempts.
+
+The exercise introduced how a SOC uses monitoring dashboards to observe day-to-day activity across a system and build a picture of what normal behaviour looks like. When activity deviates from that baseline, it can trigger an alert for the SOC team to investigate.
+
+I reviewed a Suspicious Login alert on the dashboard and identified the targeted username, `dave.saunders`.
+
+I then disabled the account through the Account Management section. I also searched for the ShadowFigures threat group and updated the threat intelligence report with details of the targeted login page and username.
+
+Finally, I submitted an incident report documenting the activity.
+
+### What stood out to me
+
+I hadn't thought much about how important it is to understand normal system activity before trying to identify suspicious behaviour.
+
+An unusual event doesn't automatically tell an analyst what has happened. The alert is a starting point for investigation, not necessarily proof of an attack.
+
+This was quite different from the Offensive Security Intro room. Instead of looking for weaknesses, I was working through the defender's side: monitoring activity, investigating an alert, taking action and documenting the incident.
+
