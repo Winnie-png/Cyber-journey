@@ -190,3 +190,35 @@ An unusual event doesn't automatically tell an analyst what has happened. The al
 
 This was quite different from the Offensive Security Intro room. Instead of looking for weaknesses, I was working through the defender's side: monitoring activity, investigating an alert, taking action and documenting the incident.
 
+
+### TryHackMe: Search Skills
+
+**Learning path:** Cyber Security 101  
+**Room:** [Search Skills](https://tryhackme.com/room/searchskills)  
+**Status:** Completed (100%)
+
+#### What I did
+
+I explored several resources used in cybersecurity research and investigation through five practical exercises:
+
+- **Shodan:** Searched for Apache servers using the TryScanMe simulation and identified the domain associated with a given IP address.
+- **VirusTotal:** Checked a simulated suspicious file, `invoice_payment.exe`, and found that 52 security vendors had flagged it as dangerous.
+- **CVE database:** Looked up `CVE-2026-1337` and reviewed its vulnerability details and CVSS classification.
+- **Linux MAN pages:** Used the simulated manual pages to look up Netcat (`nc`) and find an example command for connecting to a host on a specified port.
+- **GitHub:** Reviewed a repository containing information about a fictional CVE and located the script used to demonstrate the vulnerability.
+
+#### What stood out to me
+
+I hadn't realised how many specialised resources are available for cybersecurity research.
+
+Each serves a different purpose. Shodan helps reveal information about internet-connected systems, VirusTotal provides a way to check suspicious files, and CVE databases help researchers identify and understand known vulnerabilities.
+
+I also learned that technical documentation is available directly through Linux manual pages. Instead of relying entirely on tutorials, I can use `man` to look up how a command works and see its available options and examples.
+
+The GitHub exercise also highlighted something important: finding a proof-of-concept script doesn't mean it is safe to run. Repositories need to be reviewed before executing their code.
+
+#### What I learned
+
+Knowing where to find reliable technical information is an important part of cybersecurity. I now have a better idea of where to look when researching suspicious files, identifying vulnerabilities, understanding command-line tools and investigating security-related code.
+
+
