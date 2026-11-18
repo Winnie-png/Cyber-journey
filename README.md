@@ -222,3 +222,47 @@ The GitHub exercise also highlighted something important: finding a proof-of-con
 Knowing where to find reliable technical information is an important part of cybersecurity. I now have a better idea of where to look when researching suspicious files, identifying vulnerabilities, understanding command-line tools and investigating security-related code.
 
 
+
+### Linux Fundamentals 1
+
+**Date:** 18 November 2026
+
+#### What I learned and practised
+
+I worked through basic Linux commands using Termux and connected to a Linux virtual machine from my mobile phone using OpenConnect.
+
+Commands I learned and used:
+
+- `whoami` — displays the current username.
+- `echo` — prints text to the terminal.
+- `ls` — lists files and directories.
+- `cat` — displays file contents.
+- `cd` — changes directories.
+- `pwd` — shows the current working directory.
+- `find` — searches for files and directories.
+- `grep` — searches for matching text in files.
+
+#### Shell operators
+
+I also learned about shell operators, including:
+
+- `>` — redirects output to a file, replacing its existing contents.
+- `>>` — redirects output to a file by appending to its existing contents.
+- `&&` — runs the next command only if the previous command succeeds.
+- `&` — runs a command in the background.
+
+I practised output redirection with:
+
+```bash
+echo "TryHackMe" > thm
+echo thm >> thm
+cat thm
+```
+
+This helped me understand the difference between overwriting a file and appending new content.
+
+#### What stood out to me
+
+I have been learning Linux through my Android phone using Termux, and connecting to a Linux VM remotely made the experience even more interesting. I can now work with a Linux environment without needing a laptop.
+
+I'm building my understanding of the terminal one command at a time.
