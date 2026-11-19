@@ -266,3 +266,152 @@ This helped me understand the difference between overwriting a file and appendin
 I have been learning Linux through my Android phone using Termux, and connecting to a Linux VM remotely made the experience even more interesting. I can now work with a Linux environment without needing a laptop.
 
 I'm building my understanding of the terminal one command at a time.
+
+
+
+## Day 4 — 19 November 2026
+
+### Linux Fundamentals — Filesystem Navigation and File Inspection
+
+#### What I practised
+
+Today I focused on understanding how Linux organises files and directories, and how to navigate the filesystem using the terminal.
+
+I used `pwd` to identify my current working directory:
+
+```bash
+pwd
+```
+
+In Termux, the output was:
+
+```text
+/data/data/com.termux/files/home
+```
+
+I practised navigating directories using:
+
+```bash
+cd ..
+cd home
+cd .ssh
+cd ~
+```
+
+I learned that:
+
+- `/` represents the root directory.
+- `.` represents the current directory.
+- `..` represents the parent directory.
+- `~` is shorthand for my home directory.
+
+I also used `ls` and `ls -la` to inspect the contents of my home directory.
+
+The `-la` options showed hidden files and directories, along with their permissions and other details.
+
+One thing I learned to recognise in the output:
+
+- `d` at the beginning of a listing indicates a directory.
+- `-` at the beginning indicates a regular file.
+- Names beginning with `.` are hidden by default.
+
+#### Reading files
+
+I used the following commands to inspect files:
+
+```bash
+cat scan2.txt
+head scan2.txt
+tail scan2.txt
+```
+
+I revisited my saved Nmap scan output using `cat`.
+
+I also learned that `head` displays the beginning of a file, while `tail` displays the end. This is useful when I don't need to read an entire file.
+
+I was introduced to `tail -f`, which can follow a file as new lines are added. This is particularly useful when monitoring log files.
+
+### OverTheWire — Bandit Practice
+
+I continued practising Bandit and revisited earlier levels to strengthen my understanding.
+
+#### Files with special names
+
+In one challenge, I encountered a file whose name was simply `-`.
+
+The command that worked was:
+
+```bash
+cat ./-
+```
+
+I learned that `./` specifies a path relative to the current directory. It also prevents a filename beginning with a hyphen from being interpreted as a command option.
+
+#### Spaces in filenames
+
+I explored how Linux handles filenames containing spaces.
+
+The shell normally treats spaces as separators between arguments. I learned that I can escape spaces using a backslash:
+
+```bash
+cat incident\ report\ 2026.txt
+```
+
+Alternatively, I can enclose the filename in quotes:
+
+```bash
+cat "incident report 2026.txt"
+```
+
+#### Identifying file types — Bandit Level 4 to 5
+
+I entered the `inhere` directory and found several files with names beginning with a hyphen.
+
+I initially tried:
+
+```bash
+file *
+```
+
+This produced errors because the filenames beginning with `-` were interpreted as command options.
+
+I then tried:
+
+```bash
+file ./*
+```
+
+This worked because the `./` prefix prevented the filenames from being interpreted as options.
+
+The `file` command examines file contents to identify their types. Most of the files were identified as `data`, but one stood out:
+
+```text
+./-file07: ASCII text
+```
+
+I identified `./-file07` as the file to investigate and read its contents:
+
+```bash
+cat ./-file07
+```
+
+This revealed the password for `bandit5`. I successfully completed **Bandit Level 4 → 5**.
+
+### What stood out to me
+
+I'm starting to understand that Linux commands are not just isolated instructions. The way paths, filenames and command arguments are interpreted matters.
+
+For example, `file *` and `file ./*` look almost identical, but they behave differently when filenames begin with a hyphen.
+
+I also enjoyed learning how to inspect directories and understand what the terminal is showing me instead of just navigating blindly.
+
+### What I want to practise next
+
+- `grep` — searching for specific text inside files.
+- `find` — locating files and directories.
+- Linux file permissions.
+- Reading and understanding system logs.
+- Continue with OverTheWire Bandit Level 5 → 6.
+
+I want to keep practising these fundamentals before moving on to more advanced security tools.
+
