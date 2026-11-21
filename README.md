@@ -1,4 +1,3 @@
-
 # Cybersecurity Journey
 
 A hands-on record of my cybersecurity learning journey. This repository documents my practical exercises, tools, findings, mistakes, and progress as I build foundational security skills.
@@ -414,4 +413,89 @@ I also enjoyed learning how to inspect directories and understand what the termi
 - Continue with OverTheWire Bandit Level 5 → 6.
 
 I want to keep practising these fundamentals before moving on to more advanced security tools.
+
+
+## Day 9 — Linux Fundamentals Part 2 & Bandit Levels 5–6
+
+### Linux practice in Termux
+
+Continued learning Linux fundamentals using Termux as a free alternative to the locked TryHackMe Linux Fundamentals Part 2 room.
+
+Topics covered:
+- Command arguments and options
+- Users, UIDs and GIDs
+- Groups and group membership
+- Directory permissions vs file permissions
+- Reading permission strings
+- `chmod` using numeric permissions
+
+Practised changing directory permissions using:
+
+```bash
+chmod 755 permissions_practice
+chmod 740 permissions_practice
+```
+
+I learned that execute permission means something different depending on whether it's applied to a directory or a file:
+- On a directory, it allows access or traversal.
+- On a file, it allows you to run the program as a file.
+
+### OverTheWire Bandit
+
+**Level 5 → 6**
+
+Searched through the `maybehere` directories to identify the file that matched the challenge requirements.
+
+The file had to meet three conditions:
+- It had to be human-readable.
+- It had to be exactly 1,033 bytes.
+- It could not be executable.
+
+I used this command to narrow down the search by file size:
+
+```bash
+find . -type f -size 1033c
+```
+
+Breaking down the command:
+- `find` — searches for files and directories.
+- `.` — starts the search from my current directory.
+- `-type f` — limits the results to regular files.
+- `-size 1033c` — finds files that are exactly 1,033 bytes.
+- `c` — specifies that the size is measured in bytes.
+
+The command helped narrow down the files I needed to inspect. However, it only checked the file type and size. It did not check whether a file was human-readable or executable. I needed to use the other challenge clues to identify the correct file.
+
+This level helped me understand that `find` can filter files by specific characteristics, reducing the amount of manual checking.
+
+**Level 6 → 7**
+
+Searched across the filesystem for a file matching specific ownership, group and size requirements.
+
+```bash
+find / -user bandit7 -group bandit6 -size 33c
+```
+
+The matching password file was:
+
+```text
+/var/lib/dpkg/info/bandit7.password
+```
+
+### What was new to me
+
+- `find` can filter files based on ownership using `-user`.
+- `find` can filter files based on group ownership using `-group`.
+- Searching from `/` means searching throughout the filesystem rather than just the current directory.
+- `2>/dev/null` redirects error messages so they don't clutter the search output.
+
+I realised that I knew how to use `find` to list files, but I hadn't yet learned how to combine search criteria to narrow down the results.
+
+### What I want to understand better
+
+- Linux file searching and filtering
+- Shell redirection, particularly `stderr` and `/dev/null`
+- File management commands
+- How to construct search commands independently instead of copying solutions
+- 
 
